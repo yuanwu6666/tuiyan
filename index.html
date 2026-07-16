@@ -717,8 +717,10 @@ function initApp() {
   if (el) el.style.display = 'block';
   try {
     if (el) el.style.display = 'none';
-    loadData();
-    if (typeof autoOptimizeWindow === 'function') autoOptimizeWindow();
+    setTimeout(function() {
+      loadData();
+      if (typeof autoOptimizeWindow === 'function') autoOptimizeWindow();
+    }, 300);
   } catch (e) {
     if (el) el.textContent = '数据加载失败: ' + e.message;
   }

@@ -815,10 +815,11 @@ function loadData(){
 function syncData(){
   var btn=document.getElementById('syncBtn');
   btn.textContent='⟳ 同步中...';btn.disabled=true;
+  var BASE='https://raw.githubusercontent.com/yuanwu6666/tuiyan/main/data/';
   var ts=Date.now();
-  var p1=fetch('data_macau.json?t='+ts).then(function(r){return r.json()}).catch(function(){return null});
-  var p2=fetch('data_hk.json?t='+ts).then(function(r){return r.json()}).catch(function(){return null});
-  var p3=fetch('data_sx.json?t='+ts).then(function(r){return r.json()}).catch(function(){return null});
+  var p1=fetch(BASE+'data_macau.json?t='+ts).then(function(r){return r.json()}).catch(function(){return null});
+  var p2=fetch(BASE+'data_hk.json?t='+ts).then(function(r){return r.json()}).catch(function(){return null});
+  var p3=fetch(BASE+'data_sx.json?t='+ts).then(function(r){return r.json()}).catch(function(){return null});
   Promise.all([p1,p2,p3]).then(function(results){
     var macau=results[0],hk=results[1],sx=results[2];
     if(macau)macauData=macau; if(hk)hongkongData=hk; if(sx)sxData=sx;

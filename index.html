@@ -5734,6 +5734,7 @@ function fallbackCopy(text,btn){
   try{document.execCommand('copy');btn.textContent='\u2713 已复制';btn.classList.add('copied');setTimeout(function(){btn.textContent=String.fromCodePoint(0x1f4cb)+' 复制号码';btn.classList.remove('copied')},2000)}catch(e){}
   document.body.removeChild(ta)
 }
+document.addEventListener('DOMContentLoaded', initApp);
 
 </script>
 <div class="mobile-nav" id="mobileNav">
